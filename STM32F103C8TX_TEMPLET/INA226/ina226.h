@@ -1,0 +1,40 @@
+#ifndef __INA226_H__
+#define __INA226_H__
+
+#include "main.h"
+
+#define INA226_ASUKIAAA_DEFAULT_CONFIG 0x4127
+
+#define INA226_ASUKIAAA_ADDR_A0_GND_A1_GND 0B1000000
+#define INA226_ASUKIAAA_ADDR_A0_VDD_A1_GND 0B1000001
+#define INA226_ASUKIAAA_ADDR_A0_SDA_A1_GND 0B1000010
+#define INA226_ASUKIAAA_ADDR_A0_SCL_A1_GND 0B1000011
+#define INA226_ASUKIAAA_ADDR_A0_GND_A1_VDD 0B1000100
+#define INA226_ASUKIAAA_ADDR_A0_VDD_A1_VDD 0B1000101
+#define INA226_ASUKIAAA_ADDR_A0_SDA_A1_VDD 0B1000110
+#define INA226_ASUKIAAA_ADDR_A0_SCL_A1_VDD 0B1000111
+#define INA226_ASUKIAAA_ADDR_A0_GND_A1_SDA 0B1001000
+#define INA226_ASUKIAAA_ADDR_A0_VDD_A1_SDA 0B1001001
+#define INA226_ASUKIAAA_ADDR_A0_SDA_A1_SDA 0B1001010
+#define INA226_ASUKIAAA_ADDR_A0_SCL_A1_SDA 0B1001011
+#define INA226_ASUKIAAA_ADDR_A0_GND_A1_SCL 0B1001100
+#define INA226_ASUKIAAA_ADDR_A0_VDD_A1_SCL 0B1001101
+#define INA226_ASUKIAAA_ADDR_A0_SDA_A1_SCL 0B1001110
+#define INA226_ASUKIAAA_ADDR_A0_SCL_A1_SCL 0B1001111
+
+
+#define I2C_TIMEOUT				1000
+
+void INA226_config(I2C_HandleTypeDef* wire, int address, uint16_t calib, uint16_t config) ;
+//void INA226_setWire(I2C_HandleTypeDef* wire);
+uint16_t calcCalibByResistorMicroOhm(uint32_t resistorMilliOhm);
+int INA226_begin();
+int INA226_readMV(int16_t* volt); 
+int INA226_readV(float* volt);
+int INA226_readMA(int16_t* current);
+int INA226_readA(float* current);
+int INA226_readMW(int16_t* watt); 
+int INA226_readW(float* watt);
+int INA226_write(uint8_t reg, uint16_t val);
+int INA226_read(uint8_t reg, uint16_t* val);
+#endif

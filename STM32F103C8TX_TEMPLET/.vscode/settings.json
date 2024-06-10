@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "main.h": "c",
+        "spi.h": "c",
+        "u8x8.h": "c",
+        "lcd_display.h": "c",
+        "tim.h": "c",
+        "usart.h": "c",
+        "bpc.h": "c"
+    }
+}
